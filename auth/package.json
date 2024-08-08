@@ -6,7 +6,8 @@
   "scripts": {
     "develop": "tsx watch ./src/index.ts",
     "start": "tsx ./src/index.ts",
-    "test": "jest --watchAll --no-cache"
+    "test": "jest --watchAll --no-cache",
+    "test:ci": "jest --ci"
   },
   "jest": {
     "testEnvironment": "node",
