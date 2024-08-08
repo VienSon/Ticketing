@@ -3,6 +3,7 @@ import { app } from "./app";
 
 
 const start = async () => {
+   console.log('auth start');
    if(process.env.JWT_KEY===undefined) throw new Error('JWT_KEY must be defined');
    if(process.env.MONGO_URI===undefined) throw new Error('MONGO_URI must be defined');
    try {
