@@ -1,0 +1,36 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: newticketing
+build:
+  local:
+    push: false
+  artifacts:
+    - image: vienson/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+    - image: vienson/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+    - image: vienson/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+    - image: vienson/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+    - image: vienson/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+    - image: vienson/payment
+      context: payment
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - ./infra/k8s_local/*.yaml
+

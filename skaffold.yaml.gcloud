@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: newticketing
+build:
+  googleCloudBuild:
+    projectId: newticketing-429023
+  artifacts:
+    - image: us.gcr.io/newticketing-429023/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+    - image: us.gcr.io/newticketing-429023/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - ./infra/k8s/*.yaml
+
